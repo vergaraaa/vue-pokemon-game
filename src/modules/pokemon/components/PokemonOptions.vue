@@ -44,6 +44,6 @@ button {
 }
 
 .incorrect {
-  @apply bg-red-400 opacity-70;
+  @apply bg-red-100 opacity-70;
 }
 </style>
