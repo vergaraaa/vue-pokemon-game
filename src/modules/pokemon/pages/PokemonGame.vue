@@ -17,7 +17,7 @@
     />
 
     <!-- POKEMON OPTIONS -->
-    <PokemonOptions />
+    <PokemonOptions :options="pokemonOptions" @selected-option="onSelectedOption" />
   </section>
 </template>
 
@@ -28,6 +28,10 @@ import { usePokemonGame } from '../composables/usePokemonGame';
 import { GameStatus } from '../interfaces';
 
 const { gameStatus, randomPokemon, pokemonOptions, loading } = usePokemonGame();
+
+const onSelectedOption = (id: number) => {
+  console.log(id);
+};
 </script>
 
 <style scoped></style>
