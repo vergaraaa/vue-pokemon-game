@@ -17,7 +17,12 @@
     />
 
     <!-- POKEMON OPTIONS -->
-    <PokemonOptions :options="pokemonOptions" @selected-option="onSelectedOption" />
+    <PokemonOptions
+      :correct-answer="randomPokemon.id"
+      :options="pokemonOptions"
+      :block-selection="gameStatus !== GameStatus.Playing"
+      @selected-option="checkAnswer"
+    />
   </section>
 </template>
 
@@ -27,11 +32,7 @@ import PokemonOptions from '../components/PokemonOptions.vue';
 import { usePokemonGame } from '../composables/usePokemonGame';
 import { GameStatus } from '../interfaces';
 
-const { gameStatus, randomPokemon, pokemonOptions, loading } = usePokemonGame();
-
-const onSelectedOption = (id: number) => {
-  console.log(id);
-};
+const { gameStatus, randomPokemon, pokemonOptions, loading, checkAnswer } = usePokemonGame();
 </script>
 
 <style scoped></style>
