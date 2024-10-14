@@ -1,10 +1,10 @@
 <template>
   <section
-    v-if="loading || randomPokemon.id === null"
+    v-if="loading || randomPokemon?.id === null"
     class="flex flex-col justify-center items-center w-screen h-screen"
   >
     <h1 class="text-3xl">Please wait</h1>
-    <h1 class="animate-pulse">Loading pokemons...</h1>
+    <h3 class="animate-pulse">Loading pokemons...</h3>
   </section>
 
   <section v-else class="flex flex-col justify-center items-center w-screen h-screen">
@@ -13,8 +13,9 @@
     <div class="h-20">
       <button
         v-if="gameStatus !== GameStatus.Playing"
-        @click="getNextRound()"
+        @click="getNextRound(4)"
         class="bg-blue-500 transition-allresa p-2 rounded-md text-white hover:bg-blue-800"
+        data-test-id="btn-new-game"
       >
         Play again
       </button>
